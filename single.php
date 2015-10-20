@@ -1,34 +1,29 @@
-<?php
-/**
- * The template for displaying all single posts.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package OpenSourceFeed
- */
 
-get_header(); ?>
+<?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<div class="row">
+	
+	<div class="col-md-8">
+	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+		<h2><?php the_title(); ?></h2>
+		<p><em><?php the_time('l, F jS, Y'); ?></em></p>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+	  	<?php $content = get_the_content(); ?>
+	  	<div class="post-content img-responsive">
+	  		<?php echo $content?>
+	  	</div>
 
-			<?php get_template_part( 'template-parts/content', 'single' ); ?>
+	  	<hr>
+		<?php comments_template(); ?>
+	<?php endwhile; else: ?>
+		<p><?php _e('Sorry, this page does not exist'); ?></p>
+	<?php endif; ?>
+	</div>
+	
+	
+	<div class="col-md-4">
+		<?php get_sidebar(); ?>
+	</div>
+</div>
 
-			<?php the_post_navigation(); ?>
-
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
-
-		<?php endwhile; // End of the loop. ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
