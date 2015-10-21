@@ -1,9 +1,9 @@
 /*
-Theme Name : TechnoRevolution3 
-Description : A responsive them using bootstrap 3.2 based on tutorial given in teamtreehouse.com
+Theme Name : OpenSourceFeed
+Description : A responsive magazine theme
 Author : Niyas C
 Version 1.0
-Tags: responsive, bootstrap3.2
+Tags: responsive, magazine
 License: GPL
 */
 /*Inclusion*/
@@ -59,9 +59,21 @@ header p {
 }
 
 /*Navigation Bar*/
+#menu-btn {
+    background: #33363B;
+    color: white;
+    text-align: center;
+    margin: 0px;
+    height: 32px;
+    padding-top: 10px;
+    display: none;
+}
 nav {
     background: #33363B;
     height: 40px;
+}
+nav.visible {
+    display: block;
 }
 
 nav li {
@@ -107,10 +119,14 @@ footer {
         margin: 0px;
     }
     
+    #menu-btn {
+        display: block;
+    }
+    
     nav {
         height: auto;
         text-align: center;
-        display: block;
+        display: none;
     }
     
     nav ul {

@@ -1,3 +1,8 @@
+  <?php
+    	ini_set("display_errors", true);
+    	ini_set("display_warnings",true);
+    	error_reporting(E_ALL);
+    ?>
 <html lang="en">
 
 <head>
@@ -14,11 +19,7 @@
 
     <?php wp_enqueue_script("jquery"); ?>
         <?php wp_head(); ?>
-            <?php
-    	ini_set("display_errors", true);
-    	ini_set("display_warnings",true);
-    	error_reporting(E_ALL);
-    ?>
+          
 </head>
 
 <body>
@@ -31,6 +32,9 @@
         </p>
 
     </header>
+    <div id="menu-btn">
+        &#9776; MENU
+    </div>
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
